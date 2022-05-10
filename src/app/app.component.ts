@@ -10,16 +10,15 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  // employees coming from backend
+
   public employees: Employee[];
   public editEmployee: Employee;
   public deleteEmployee: Employee;
 
-  // import from EmployeeService
+
   constructor(private employeeService: EmployeeService) {
   }
 
-  // RUN THIS COMPONENET WHEN ITS INITIALIZED whith method getEMploytees()
   // tslint:disable-next-line:typedef
   ngOnInit() {
     this.getEmployees();
@@ -77,7 +76,6 @@ export class AppComponent implements OnInit{
 
   public searchEmployees(key: string): void {
     console.log(key);
-    // store all employee that match from KEY
     const results: Employee[] = [];
     for (const employee of this.employees) {
       if (employee.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
@@ -95,7 +93,6 @@ export class AppComponent implements OnInit{
 
   public onOpenModal(employee: Employee, mode: string): void {
     const container = document.getElementById('main-container');
-    // create button
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
